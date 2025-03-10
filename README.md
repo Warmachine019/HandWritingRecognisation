@@ -10,7 +10,7 @@ This project is a **Handwritten Digit Recognition** system based on a **Convolut
 
 ## 📁 Project Structure
 ```
-📂 AI_Project
+📂 HandWritingRecognisation
 │── fine_tune_model.py       # Fine-tune the model with custom images
 │── load_model.py            # Load the trained model
 │── mnist_cnn.py             # CNN model for digit recognition
@@ -20,6 +20,7 @@ This project is a **Handwritten Digit Recognition** system based on a **Convolut
 │── predict_digit.py         # Script to predict digits from images
 │── preprocess_my_digits.py  # Preprocessing script for custom images
 │── test.png                 # Sample handwritten digit image
+│── /my_digits/              # Handwritten images to train the model on
 ```
 
 ## 🚀 How to Run
