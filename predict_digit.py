@@ -1,26 +1,19 @@
-import tensorflow as tf
+import cv2
 import numpy as np
-import cv2  # OpenCV for image processing
+import tensorflow as tf
 
-# Load the saved model
-model = tf.keras.models.load_model("mnist_lenet5.h5")
+# Load the model
+model = tf.keras.models.load_model("mnist_lenet5_finetuned.h5")
 
-# Load the image (update the filename if needed)
-image_path = "test5.png"  # Update this to match your file name
-image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)  # Load in grayscale
+# Load and preprocess the image
+img = cv2.imread("test.png", cv2.IMREAD_GRAYSCALE)  # Read in grayscale
+img = cv2.resize(img, (28, 28))  # Resize to 28x28
+img = cv2.bitwise_not(img)  # Invert colors if needed (MNIST is white background)
+img = img / 255.0  # Normalize
+img = img.reshape(1, 28, 28, 1)  # Reshape for model input
 
-# Convert to binary image (thresholding) to remove noise
-_, image = cv2.threshold(image, 128, 255, cv2.THRESH_BINARY_INV)
-
-# Resize to 28x28 (same as MNIST dataset)
-image = cv2.resize(image, (28, 28))
-
-# Normalize pixel values (0-1 range) & reshape for model input
-image = image / 255.0
-image = image.reshape(1, 28, 28, 1)  # Add batch dimension
-
-# Predict the digit
-prediction = model.predict(image)
+# Make prediction
+prediction = model.predict(img)
 predicted_digit = np.argmax(prediction)
 
-print(f"Predicted Digit: {predicted_digit}")
+print(f"🔢 Predicted digit: {predicted_digit}")
