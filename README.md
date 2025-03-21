@@ -56,6 +56,6 @@ python predict_digit.py
 - Ensure the image file exists and is correctly **preprocessed**.
 - If OpenCV throws a file error, verify the **image path**
 
-## 💻 UPDATE:
+## 💻 Update:
 1. "predict_digit_custom_model.py" now scans 2 images at once, "test0.png" and "test1.png" and returns the predicted value for both images.
 2. Add more reference images to the "my_digits" folder and train the model in order to get more accurate results.
