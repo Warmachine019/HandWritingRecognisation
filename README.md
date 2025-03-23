@@ -45,8 +45,8 @@ python fine_tune_model.py
 ```
 This will generate a **fine-tuned model** (`mnist_lenet5_finetuned.h5`).
 
-### 4️⃣ Predict the digits
-To predict a digit from an image (e.g., `test.png`):
+### 4️⃣ Predict the Digits
+To predict the digits from an image (e.g., `test.png`):
 ```bash
 python predict_digit.py
 ```
